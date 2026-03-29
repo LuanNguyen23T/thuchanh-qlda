@@ -22,6 +22,7 @@ public:
         // Thanh vien 2
         float &operator[](size_t idx);
         float operator[](size_t idx) const;
+        FloatVector operator=(const FloatVector&) const;
 
         // Thanh vien 3
         bool operator==(const FloatVector&) const;
@@ -32,6 +33,11 @@ public:
         ~FloatVector();
         size_t get_size() const;
         size_t get_capacity() const;
+
+        bool operator!=(const FloatVector &n) const
+        {
+                return !(*this == n);
+        }
 
         FloatVector operator-(float n) const
         {
