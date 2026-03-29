@@ -1,6 +1,17 @@
 #pragma once
-#include <cstdint>
 #include <cstddef>
+
+// Moi thanh vien trong nhom tao feature branch, roi lam task duoc
+// giao o comment trong cac function. Thanh vien nhom co the tao
+// file source code moi, edit file FloatVector.cxx, viet thang vao
+// header tuy so thich.
+//
+// Sau khi cac thanh vien da hoan thanh, nhom truong merge cac
+// branch thanh vien vao main, hoac tao 1 dev branch de merge vao,
+// sau do tao pull request len upstream (repo goc ma minh fork ve).
+//
+// Khi merge feature branch vao dev hoac main, neu xay ra conflict
+// thi gio tay de co nguoi cuu.
 
 class FloatVector {
 public:
@@ -22,8 +33,15 @@ public:
         size_t get_size() const;
         size_t get_capacity() const;
 
-        FloatVector operator-(float n) const;
-        FloatVector operator/(float n) const;
+        FloatVector operator-(float n) const
+        {
+                return *this + (-n);
+        }
+
+        FloatVector operator/(float n) const
+        {
+                return *this * (1.0f/n);
+        }
 private:
         // Thanh vien 1
         void _realloc(size_t new_size);
