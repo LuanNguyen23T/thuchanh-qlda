@@ -4,8 +4,8 @@ WARN := -Wall -Werror
 INTERNAL_CFLAGS := $(WARN) -MMD
 override CFLAGS += $(INTERNAL_CFLAGS)
 
-SRC_FILES := $(wildcard *.cxx)
-OBJ_FILES := $(SRC_FILES:.cxx=.o)
+SRC_FILES := $(wildcard *.cxx *.cpp *.cc *c)
+OBJ_FILES := $(addsuffix .o, $(basename $(SRC_FILES)))
 
 all: main
 
