@@ -1,38 +1,20 @@
 #pragma once
 #include <cstddef>
 
-// Moi thanh vien trong nhom tao feature branch, roi lam task duoc
-// giao o comment trong cac function. Thanh vien nhom co the tao
-// file source code moi, edit file FloatVector.cxx, viet thang vao
-// header tuy so thich.
-//
-// Sau khi cac thanh vien da hoan thanh, nhom truong merge cac
-// branch thanh vien vao main, hoac tao 1 dev branch de merge vao,
-// sau do tao pull request len upstream (repo goc ma minh fork ve).
-//
-// Khi merge feature branch vao dev hoac main, neu xay ra conflict
-// thi gio tay de co nguoi cuu.
-
 class FloatVector {
 public:
-        // Thanh vien 1
-        FloatVector();  // Tao moi array _data bang new hoac malloc().
-        void push(float n); // Them phan tu n vao cuoi vector.
-        float pop();    // Xoa phan tu cuoi cung (phan tu duoc push
-                        // gan day nhat) roi tra ve gia tri phan tu do.
+       
+        FloatVector();  
+        void push(float n); 
+        float pop();    
+                       
 
-        // Thanh vien 2
+       
         float &operator[](size_t idx);
         float operator[](size_t idx) const;
 
-        // Thanh vien 2 luu y: ham nay thuc hien deep copy. Thay vi
-        // chi gan _data cua FloatVector nay vao _data cua FloatVector
-        // kia thi phai copy tung phan tu cua FloatVector kia, de tranh
-        // bug double free.
-        FloatVector &operator=(const FloatVector); // Gan vector nay
-                                                   // vao vector kia.
-
-        // Thanh vien 3
+        FloatVector &operator=(const FloatVector); 
+                                                  
         bool operator==(const FloatVector&) const; // So sanh 2 vector.
         FloatVector operator*(float n) const;   // Nhan moi phan tu voi n.
         FloatVector operator+(float n) const;   // Cong moi phan tu voi n.
