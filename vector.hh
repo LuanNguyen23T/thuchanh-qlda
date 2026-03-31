@@ -9,18 +9,12 @@ public:
         float pop();    
                        
 
-        // Thanh vien 2
+       
         float &operator[](size_t idx);
         float operator[](size_t idx) const;
 
-        // Thanh vien 2 luu y: ham nay thuc hien deep copy. Thay vi
-        // chi gan _data cua FloatVector nay vao _data cua FloatVector
-        // kia thi phai copy tung phan tu cua FloatVector kia, de tranh
-        // bug double free.
-        FloatVector &operator=(const FloatVector); // Gan vector nay
-                                                   // vao vector kia.
-
-        // Thanh vien 3
+        FloatVector &operator=(const FloatVector); 
+                                                  
         bool operator==(const FloatVector&) const; // So sanh 2 vector.
         FloatVector operator*(float n) const;   // Nhan moi phan tu voi n.
         FloatVector operator+(float n) const;   // Cong moi phan tu voi n.
